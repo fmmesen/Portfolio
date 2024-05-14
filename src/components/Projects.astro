@@ -1,0 +1,49 @@
+---
+import CSharp from "../icons/CSharp.astro"
+import Javascript from "../icons/Javascript.astro"
+
+const TAGS = {
+    CSharp: {
+        name: "C#",
+        class: "bg-purple-600 text-black",
+        icon: CSharp
+    },
+    Javascript: {
+        name: "Javascript",
+        class: "bg-yellow-300 text-black",
+        icon: Javascript
+    }
+}
+
+const PROJECTS = [
+    {
+        title: "Markdown2docx convertor",
+        description:
+            "This project was primarily developed to be integrated as a module into another fully offline open source application. One of the significant contributions of this project, due to its offline nature that requires loading all elements beforehand, is its ability to convert images both to Markdown and Word files, a functionality not commonly seen in converters of these formats. This already functional project continues to be developed with the goal of enabling those who need it to fully benefit from it in the future, both as a web-based tool and as a potential library.",
+        link: "https://fabianvalverde.github.io/publish-docx2md/",
+        github: "https://github.com/fmmesen/docx2md-wasm",
+        image: "/projects/DGConvertor.webp",
+        tags: [TAGS.CSharp, TAGS.Javascript],
+    },
+];
+---
+
+{
+    PROJECTS.map(({ title, description, tags: tags, image }) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-blue-400 mb-2">{title}</h3>
+            <p class="mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span class={`flex gap-x-1 rounded-full text-xs font-semibold justify-center items-center ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-5"/>
+                            {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img class="rounded-3xl shadow-xl shadow-white/10" src={image} alt={`screenshot for the project ${title}`} />
+        </article>
+    ))
+}
