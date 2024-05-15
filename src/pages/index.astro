@@ -10,6 +10,7 @@ import Section from "../components/Section.astro";
 import Experience from "../components/Experience.astro";
 import Cmd from "../icons/Cmd.astro";
 import Projects from "../components/Projects.astro";
+import Bio from "../components/Bio.astro";
 ---
 
 <Layout
@@ -17,53 +18,24 @@ import Projects from "../components/Projects.astro";
 	description="A junior programmer with over a year of experience. Focused on backend development, exploring opportunities in the web3 industry passionate about open source."
 >
 	<main class="px-4">
-		<Section class="pt-32 pb-28">
-			<img
-				class="rounded-full size-12"
-				src="/20230507_171512.jpg"
-				alt="Perfil Fabiancito"
-			/>
-			<h1
-				class="text-white text-2xl lg:text-3xl font-bold flex flex-row gap-x-4 pb-3 lg:pb-6"
-			>
-				Hello, I'm Fabian :)
-				<div class="flex justify-center items-center">
-					<Badge>Available</Badge>
-				</div>
-			</h1>
-			<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-				A junior programmer with over a year of experience. Focused on <span
-					class="text-yellow-300/75">backend development</span
-				>, exploring opportunities in the <span
-					class="text-purple-300">web3 industry</span
-				> and looking to learn more about and contribute to <span class="text-green-200"
-					>open source</span
-				>.
-			</h2>
-			<nav class="flex gap-4 mt-8 flex-wrap">
-				<SocialPill
-					href="https://www.linkedin.com/in/fabi%C3%A1n-valverde-mes%C3%A9n-9168381a2/"
-					><Github class="size-3 lg:size-5" />Github</SocialPill
-				>
-				<SocialPill
-					href="https://www.linkedin.com/in/fabi%C3%A1n-valverde-mes%C3%A9n-9168381a2/"
-					><LinkedIn class="size-3 lg:size-5" />LinkedIn</SocialPill
-				>
-			</nav>
+		<Section class="py-16 md:py-36">
+			<Bio />
 		</Section>
+	</main>
+	<div class="space-y-24">
 		<Section id="experience">
 			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
-				<Laptop class="size-7"/>
+				<Laptop class="size-7" />
 				Experience
 			</h2>
-			<Experience/>
+			<Experience />
 		</Section>
 		<Section id="projects">
 			<h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
-				<Cmd class="size-7"/>
+				<Cmd class="size-7" />
 				Projects
 			</h2>
-			<Projects/>
+			<Projects />
 		</Section>
-	</main>
+	</div>
 </Layout>

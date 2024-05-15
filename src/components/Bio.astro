@@ -1,0 +1,48 @@
+---
+const personalImageAlt = "Miguel Ángel";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import MailIcon from "../icons/Mail.astro";
+import SocialPill from "../components/SocialPill.astro";
+import Github from "../icons/Github.astro";
+import LinkedIn from "../icons/LinkedIn.astro";
+---
+
+<div class="max-w-xl">
+    <div class="flex gap-4 mb-4">
+        <img
+            class="rounded-full shadow-lg size-20"
+            src="/Mapache.png"
+            alt={personalImageAlt}
+        />
+        <div class="flex justify-center items-center">
+            <Badge>Available</Badge>
+        </div>
+            
+    </div>
+    <h1 class="text-4xl font-bold tracking-tight text-white">
+        Hey, I'm Fabian :)
+    </h1>
+    <p class="mt-6 text-xl [&>strong]:font-semibold text-gray-100">
+        A junior programmer with over a year of experience. Focused on <span
+            class="text-yellow-300/75">backend development</span
+        >, exploring opportunities in the <span class="text-purple-300"
+            >web3 industry</span
+        > and looking to learn more about and contribute to <span
+            class="text-green-200">open source projects</span
+        >.
+    </p>
+    <nav class="flex flex-wrap gap-4 mt-8">
+        <SocialPill
+            href="https://www.linkedin.com/in/fabi%C3%A1n-valverde-mes%C3%A9n-9168381a2/"
+            ><Github class="size-3 lg:size-5" />Github</SocialPill
+        >
+        <SocialPill
+            href="https://www.linkedin.com/in/fabi%C3%A1n-valverde-mes%C3%A9n-9168381a2/"
+            ><LinkedIn class="size-3 lg:size-5" />LinkedIn</SocialPill
+        >
+        <SocialPill href="mailto:fabian3830@gmail.com"
+            ><MailIcon class="size-3 lg:size-5" />E-mail</SocialPill
+        >
+    </nav>
+</div>

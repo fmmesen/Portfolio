@@ -7,7 +7,14 @@ const EXPERIENCE = [
     title: "Software Developer",
     company: "Datagrove",
     description:
-      "Desarrollador blablablabalblablabla"
+      "• Started an open-source C# .NET Markdown to Word converter library, using WebAssembly and JavaScript to pre-process data. Delivered a fully functional MVP ready for implementation in the main project under development.\n• As a Test Automation Engineer, optimized regression tests with Selenium C# and Cucumber, administered the primary server, and managed virtual machines for test execution and private repositories."
+  },
+  {
+    date: "Jan 2020 - Jul 2020",
+    title: "System Support Engineer",
+    company: "Tek Experts",
+    description:
+      "Ensure the smooth functioning of the UFT tool and troubleshoot any technical issues that arose during the testing process. I provided basic support and meticulously reproduced test cases to identify potential solutions or workarounds."
   }
 ]
 ---
@@ -16,7 +23,7 @@ const EXPERIENCE = [
 <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
     {
         EXPERIENCE.map(experience => (
-        <li class="mb-10 ms-4">
+        <li class="mb-10 ms-4 whitespace-pre-line">
             <ExperienceItem {...experience} />
         </li>
         ))

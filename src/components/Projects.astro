@@ -1,6 +1,10 @@
 ---
 import CSharp from "../icons/CSharp.astro"
 import Javascript from "../icons/Javascript.astro"
+import GitHub from "../icons/Github.astro"
+import Link from "../icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import SocialPill from "./SocialPill.astro"
 
 const TAGS = {
     CSharp: {
@@ -17,10 +21,10 @@ const TAGS = {
 
 const PROJECTS = [
     {
-        title: "Markdown2docx convertor",
+        title: "Markdown2docx convertor ",
         description:
-            "This project was primarily developed to be integrated as a module into another fully offline open source application. One of the significant contributions of this project, due to its offline nature that requires loading all elements beforehand, is its ability to convert images both to Markdown and Word files, a functionality not commonly seen in converters of these formats. This already functional project continues to be developed with the goal of enabling those who need it to fully benefit from it in the future, both as a web-based tool and as a potential library.",
-        link: "https://fabianvalverde.github.io/publish-docx2md/",
+            "This project, designed as a library, was intended for integration into fully offline applications. It was developed with a deep understanding of Word document structures and uses various libraries within the .Net framework, as well as the OpenXml SDK. The library is continuously being enhanced to ensure that future users can fully utilize its capabilities, both as a web-based tool and as a standalone library suitable for integration into a wide range of applications.",
+        link: "https://fmmesen.github.io/publish-docx2md/",
         github: "https://github.com/fmmesen/docx2md-wasm",
         image: "/projects/DGConvertor.webp",
         tags: [TAGS.CSharp, TAGS.Javascript],
@@ -28,22 +32,53 @@ const PROJECTS = [
 ];
 ---
 
-{
-    PROJECTS.map(({ title, description, tags: tags, image }) => (
-        <article>
-            <h3 class="text-2xl font-semibold text-blue-400 mb-2">{title}</h3>
-            <p class="mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-2">
-                {tags.map((tag) => (
-                    <li>
-                        <span class={`flex gap-x-1 rounded-full text-xs font-semibold justify-center items-center ${tag.class} py-1 px-2`}>
-                            <tag.icon class="size-5"/>
-                            {tag.name}
-                        </span>
-                    </li>
-                ))}
+<div class="flex flex-col gap-y-16">
+    {
+        PROJECTS.map(({ title, description, tags: tags, image, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+      <div class="w-full md:w-1/2 items-center flex">
+        <div class="relative flex-col justify-center items-center gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top max-w-full h-auto transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+        </div>
+      </div>
+    
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-100">
+          {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
             </ul>
-            <img class="rounded-3xl shadow-xl shadow-white/10" src={image} alt={`screenshot for the project ${title}`} />
-        </article>
-    ))
-}
+    
+          <div class="text-sm mt-2 text-gray-200">{description}</div>
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (  
+                <SocialPill href={github}>
+                  <GitHub class="size-6" />
+                  Repository
+                  
+                </SocialPill>
+              )}
+              {link && (
+                <SocialPill href={link}>
+                  <Link class="size-6" />
+                  Preview
+                </SocialPill>
+              )}
+            </footer>
+        </div>
+      </div>
+    </article>
+        ))
+    }    
+</div>
